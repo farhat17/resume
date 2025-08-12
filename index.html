@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,41 +8,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js" integrity="sha512-KqU379VMYfQs9U+2OEjqR9d6gqQKXQif0sYoT7TSt8XbDgCb3QMu0J0sZfQMuONnB3E8X7kbeAinYteLM4lZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"
+        integrity="sha512-KqU379VMYfQs9U+2OEjqR9d6gqQKXQif0sYoT7TSt8XbDgCb3QMu0J0sZfQMuONnB3E8X7kbeAinYteLM4lZg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+
         :root {
             --primary: #4f46e5;
             --primary-light: #e0e7ff;
         }
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
+
         .resume-container {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
-        
+
         .section-title {
             position: relative;
             padding-bottom: 8px;
             margin-bottom: 16px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -52,91 +58,126 @@
             background: var(--primary);
             border-radius: 3px;
         }
-        
+
         .skill-badge {
             transition: all 0.2s ease;
         }
-        
+
         .ai-suggestion {
             animation: fadeIn 0.5s ease-in-out;
             border-left: 3px solid var(--primary);
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .ai-loading {
             animation: pulse 1.5s infinite;
         }
-        
+
         @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
         }
-        
+
         .print-area {
             min-height: 297mm;
             background: white;
         }
-        
+
         .theme-btn.active {
             transform: scale(1.1);
             box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
         }
-        
+
         .ai-btn {
             transition: all 0.3s ease;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
         }
-        
+
         .ai-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
         }
-        
+
         .input-card {
             transition: all 0.3s ease;
             border-radius: 12px;
             overflow: hidden;
         }
-        
+
         .input-card:hover {
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .preview-section {
             transition: all 0.3s ease;
         }
-        
+
         .preview-section:hover {
             transform: translateY(-3px);
         }
-        
+
         .download-btn {
             background: linear-gradient(135deg, #6366f1, #4f46e5);
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
         }
-        
+
         .download-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(79, 70, 229, 0.4);
         }
-        
+
         .ai-tip-card {
             transition: all 0.3s ease;
             border-radius: 12px;
         }
-        
+
         .ai-tip-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
+
+        /* New update button styles */
+        .update-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(5, 150, 105, 0.3);
+        }
+
+        .update-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(5, 150, 105, 0.4);
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50">
     <div class="max-w-7xl mx-auto">
         <!-- Header -->
@@ -145,10 +186,17 @@
                 <h1 class="text-3xl md:text-4xl font-bold text-indigo-800 mb-3">AI Resume Builder</h1>
                 <p class="text-gray-600 max-w-2xl mx-auto">Create a professional resume with AI-powered suggestions</p>
             </div>
-            
-            <button id="downloadBtn" class="download-btn text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center mx-auto shadow-lg">
-                <i class="fas fa-download mr-3"></i> Download Your Resume
-            </button>
+
+            <div class="action-buttons">
+                <button id="updatePreviewBtn"
+                    class="update-btn text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center shadow-lg">
+                    <i class="fas fa-sync-alt mr-3"></i> Update Preview
+                </button>
+                <button id="downloadBtn"
+                    class="download-btn text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center justify-center shadow-lg">
+                    <i class="fas fa-download mr-3"></i> Download Your Resume
+                </button>
+            </div>
         </header>
 
         <div class="flex flex-col lg:flex-row gap-8">
@@ -161,91 +209,115 @@
                         </div>
                         <h2 class="text-2xl font-bold text-gray-800">Personal Information</h2>
                     </div>
-                    
+
                     <div class="space-y-6">
                         <!-- Name -->
                         <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
                             <label class="block text-sm font-medium text-gray-700 mb-3">Full Name</label>
-                            <input type="text" id="fullName" placeholder="John Doe" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value=" Raina">
+                            <input type="text" id="fullName" placeholder="John Doe"
+                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                value=" Raina">
                         </div>
-                        
+
                         <!-- Job Title -->
                         <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
                             <label class="block text-sm font-medium text-gray-700 mb-3">Job Title</label>
-                            <input type="text" id="jobTitle" placeholder="Web Developer" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="Full Stack Web Developer">
+                            <input type="text" id="jobTitle" placeholder="Web Developer"
+                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                value="Full Stack Web Developer">
                         </div>
-                        
+
                         <!-- Contact Info -->
                         <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
                             <label class="block text-sm font-medium text-gray-700 mb-3">Contact Information</label>
                             <div class="space-y-4">
                                 <div>
                                     <label class="block text-xs text-gray-500 mb-1">Email</label>
-                                    <input type="email" id="email" placeholder="your.email@example.com" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value=".raina@example.com">
+                                    <input type="email" id="email" placeholder="your.email@example.com"
+                                        class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                        value=".raina@example.com">
                                 </div>
                                 <div>
                                     <label class="block text-xs text-gray-500 mb-1">Phone</label>
-                                    <input type="tel" id="phone" placeholder="(123) 456-7890" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="(987) 654-3210">
+                                    <input type="tel" id="phone" placeholder="(123) 456-7890"
+                                        class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                        value="(987) 654-3210">
                                 </div>
                                 <div>
                                     <label class="block text-xs text-gray-500 mb-1">Location</label>
-                                    <input type="text" id="location" placeholder="City, Country" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="Chandigarh, India">
+                                    <input type="text" id="location" placeholder="City, Country"
+                                        class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                        value="Chandigarh, India">
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Summary -->
                         <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
                             <div class="flex justify-between items-center mb-3">
                                 <label class="block text-sm font-medium text-gray-700">Professional Summary</label>
-                                <button id="aiSummaryBtn" class="ai-btn text-white px-4 py-2 rounded-lg flex items-center">
+                                <button id="aiSummaryBtn"
+                                    class="ai-btn text-white px-4 py-2 rounded-lg flex items-center">
                                     <i class="fas fa-robot mr-2"></i> AI Enhance
                                 </button>
                             </div>
-                            <textarea id="summary" rows="4" class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent bg-white">Experienced web developer with expertise in React and RESTful API development. Successfully improved user engagement and website efficiency in previous projects.</textarea>
-                            
+                            <textarea id="summary" rows="4"
+                                class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent bg-white">Experienced web developer with expertise in React and RESTful API development. Successfully improved user engagement and website efficiency in previous projects.</textarea>
+
                             <!-- AI Suggestion -->
                             <div id="aiSummarySuggestion" class="ai-suggestion mt-4 p-4 bg-indigo-50 rounded-lg hidden">
                                 <div class="flex items-start mb-3">
                                     <i class="fas fa-lightbulb text-indigo-600 text-xl mt-1 mr-3"></i>
                                     <div>
                                         <p class="font-medium text-gray-800 mb-1">AI Suggestion:</p>
-                                        <p id="aiSummaryText" class="text-gray-700">Consider adding quantifiable achievements: "Improved user engagement by 25% through intuitive UI design"</p>
+                                        <p id="aiSummaryText" class="text-gray-700">Consider adding quantifiable
+                                            achievements: "Improved user engagement by 25% through intuitive UI design"
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="flex justify-end space-x-3">
-                                    <button id="applySummarySuggestion" class="text-sm bg-indigo-600 text-white px-4 py-2 rounded-lg">Apply Suggestion</button>
-                                    <button id="dismissSummarySuggestion" class="text-sm bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Dismiss</button>
+                                    <button id="applySummarySuggestion"
+                                        class="text-sm bg-indigo-600 text-white px-4 py-2 rounded-lg">Apply
+                                        Suggestion</button>
+                                    <button id="dismissSummarySuggestion"
+                                        class="text-sm bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Dismiss</button>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Skills -->
                         <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
                             <div class="flex justify-between items-center mb-3">
                                 <label class="block text-sm font-medium text-gray-700">Skills (comma separated)</label>
-                                <button id="aiSkillsBtn" class="ai-btn text-white px-4 py-2 rounded-lg flex items-center">
+                                <button id="aiSkillsBtn"
+                                    class="ai-btn text-white px-4 py-2 rounded-lg flex items-center">
                                     <i class="fas fa-robot mr-2"></i> AI Enhance
                                 </button>
                             </div>
-                            <textarea id="skills" rows="4" class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent bg-white">Web application development, Front-end framework React, RESTful API development, Git version control, SQL database design, User interface design, Database optimization, Python, React, HTML, CSS, TailwindCSS, Bootstrap, Django, MySQL</textarea>
-                            
+                            <textarea id="skills" rows="4"
+                                class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent bg-white">Web application development, Front-end framework React, RESTful API development, Git version control, SQL database design, User interface design, Database optimization, Python, React, HTML, CSS, TailwindCSS, Bootstrap, Django, MySQL</textarea>
+
                             <!-- AI Suggestion -->
                             <div id="aiSkillsSuggestion" class="ai-suggestion mt-4 p-4 bg-indigo-50 rounded-lg hidden">
                                 <div class="flex items-start mb-3">
                                     <i class="fas fa-lightbulb text-indigo-600 text-xl mt-1 mr-3"></i>
                                     <div>
                                         <p class="font-medium text-gray-800 mb-1">AI Suggestion:</p>
-                                        <p id="aiSkillsText" class="text-gray-700">Group similar skills together: "Frontend: React, HTML, CSS, TailwindCSS; Backend: Python, Django, RESTful APIs"</p>
+                                        <p id="aiSkillsText" class="text-gray-700">Group similar skills together:
+                                            "Frontend: React, HTML, CSS, TailwindCSS; Backend: Python, Django, RESTful
+                                            APIs"</p>
                                     </div>
                                 </div>
                                 <div class="flex justify-end space-x-3">
-                                    <button id="applySkillsSuggestion" class="text-sm bg-indigo-600 text-white px-4 py-2 rounded-lg">Apply Suggestion</button>
-                                    <button id="dismissSkillsSuggestion" class="text-sm bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Dismiss</button>
+                                    <button id="applySkillsSuggestion"
+                                        class="text-sm bg-indigo-600 text-white px-4 py-2 rounded-lg">Apply
+                                        Suggestion</button>
+                                    <button id="dismissSkillsSuggestion"
+                                        class="text-sm bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Dismiss</button>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Experience -->
                         <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
                             <div class="flex items-center mb-4">
@@ -254,62 +326,77 @@
                                 </div>
                                 <label class="block text-sm font-medium text-gray-700">Work Experience</label>
                             </div>
-                            
+
                             <div class="space-y-5">
                                 <div class="border border-gray-200 rounded-xl p-5 bg-white relative">
                                     <div class="flex justify-between items-center mb-4">
                                         <h3 class="font-medium text-gray-800">Experience #1</h3>
-                                        <button class="ai-btn text-white px-3 py-1 rounded-lg flex items-center text-sm">
+                                        <button
+                                            class="ai-btn text-white px-3 py-1 rounded-lg flex items-center text-sm">
                                             <i class="fas fa-robot mr-1"></i> Enhance
                                         </button>
                                     </div>
-                                    
+
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                                         <div>
                                             <label class="block text-xs text-gray-500 mb-2">Company</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="ZESTIN SOLUTIONS PRIVATE LIMITED">
+                                            <input type="text" id="expCompany"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="ZESTIN SOLUTIONS PRIVATE LIMITED">
                                         </div>
                                         <div>
                                             <label class="block text-xs text-gray-500 mb-2">Position</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="Web Developer">
+                                            <input type="text" id="expPosition"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="Web Developer">
                                         </div>
                                         <div>
                                             <label class="block text-xs text-gray-500 mb-2">Location</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="Chandigarh, India">
+                                            <input type="text" id="expLocation"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="Chandigarh, India">
                                         </div>
                                         <div>
                                             <label class="block text-xs text-gray-500 mb-2">Period</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="04/2022 to 06/2025">
+                                            <input type="text" id="expPeriod"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="04/2022 to 06/2025">
                                         </div>
                                     </div>
-                                    
+
                                     <div>
-                                        <label class="block text-xs text-gray-500 mb-2">Responsibilities & Achievements</label>
-                                        <textarea rows="5" class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent bg-gray-50">Collaborated with cross-functional teams to design and implement intuitive, user-friendly web interfaces, improving user satisfaction and engagement. Maintained and enhanced websites by updating content, resolving technical issues, and implementing new features, ensuring 99% uptime. Partnered with clients to gather detailed requirements, translating business needs into scalable technical solutions.</textarea>
+                                        <label class="block text-xs text-gray-500 mb-2">Responsibilities &
+                                            Achievements</label>
+                                        <textarea id="expResponsibilities" rows="5"
+                                            class="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-transparent bg-gray-50">Collaborated with cross-functional teams to design and implement intuitive, user-friendly web interfaces, improving user satisfaction and engagement. Maintained and enhanced websites by updating content, resolving technical issues, and implementing new features, ensuring 99% uptime. Partnered with clients to gather detailed requirements, translating business needs into scalable technical solutions.</textarea>
                                     </div>
-                                    
+
                                     <!-- AI Suggestion -->
                                     <div class="ai-suggestion mt-4 p-4 bg-indigo-50 rounded-lg">
                                         <div class="flex items-start mb-2">
                                             <i class="fas fa-lightbulb text-indigo-600 text-lg mt-1 mr-3"></i>
                                             <div>
                                                 <p class="font-medium text-gray-800 mb-1">AI Suggestion:</p>
-                                                <p class="text-gray-700">Quantify your achievements: "Improved user satisfaction by 25%" or "Ensured 99.9% uptime"</p>
+                                                <p class="text-gray-700">Quantify your achievements: "Improved user
+                                                    satisfaction by 25%" or "Ensured 99.9% uptime"</p>
                                             </div>
                                         </div>
                                         <div class="flex justify-end space-x-3">
-                                            <button class="text-sm bg-indigo-600 text-white px-3 py-1 rounded">Apply</button>
-                                            <button class="text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded">Dismiss</button>
+                                            <button
+                                                class="text-sm bg-indigo-600 text-white px-3 py-1 rounded">Apply</button>
+                                            <button
+                                                class="text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded">Dismiss</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <button class="mt-4 w-full py-3 bg-indigo-50 text-indigo-700 rounded-lg font-medium flex items-center justify-center hover:bg-indigo-100 transition">
+
+                            <button
+                                class="mt-4 w-full py-3 bg-indigo-50 text-indigo-700 rounded-lg font-medium flex items-center justify-center hover:bg-indigo-100 transition">
                                 <i class="fas fa-plus mr-2"></i> Add Another Experience
                             </button>
                         </div>
-                        
+
                         <!-- Education -->
                         <div class="border border-gray-200 rounded-xl p-5 bg-gray-50">
                             <div class="flex items-center mb-4">
@@ -318,41 +405,52 @@
                                 </div>
                                 <label class="block text-sm font-medium text-gray-700">Education</label>
                             </div>
-                            
+
                             <div class="space-y-5">
                                 <div class="border border-gray-200 rounded-xl p-5 bg-white">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                         <div>
                                             <label class="block text-xs text-gray-500 mb-2">Degree</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="B.Tech">
+                                            <input type="text" id="eduDegree"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="B.Tech">
                                         </div>
                                         <div>
                                             <label class="block text-xs text-gray-500 mb-2">Date</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="06/2021">
+                                            <input type="text" id="eduDate"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="06/2021">
                                         </div>
                                         <div class="md:col-span-2">
                                             <label class="block text-xs text-gray-500 mb-2">Institution</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="Sultan Group of Institutions">
+                                            <input type="text" id="eduInstitution"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="Sultan Group of Institutions">
                                         </div>
                                         <div class="md:col-span-2">
                                             <label class="block text-xs text-gray-500 mb-2">Location</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="Ludhiana Khanna, Punjab">
+                                            <input type="text" id="eduLocation"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="Ludhiana Khanna, Punjab">
                                         </div>
                                         <div class="md:col-span-2">
                                             <label class="block text-xs text-gray-500 mb-2">Field of Study</label>
-                                            <input type="text" class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent" value="Computer Science">
+                                            <input type="text" id="eduField"
+                                                class="w-full p-3 border-b-2 border-gray-200 focus:outline-none focus:border-indigo-500 bg-transparent"
+                                                value="Computer Science">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <button class="mt-4 w-full py-3 bg-indigo-50 text-indigo-700 rounded-lg font-medium flex items-center justify-center hover:bg-indigo-100 transition">
+
+                            <button
+                                class="mt-4 w-full py-3 bg-indigo-50 text-indigo-700 rounded-lg font-medium flex items-center justify-center hover:bg-indigo-100 transition">
                                 <i class="fas fa-plus mr-2"></i> Add Another Education
                             </button>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- AI Tips Section -->
                 <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-sm p-6 ai-tip-card">
                     <h2 class="text-2xl font-bold text-white mb-5">AI-Powered Resume Tips</h2>
@@ -363,7 +461,8 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-white">Quantify Achievements</h3>
-                                <p class="text-indigo-100 text-sm mt-1">Add numbers to demonstrate your impact: "Improved performance by 40%" instead of "Improved performance"</p>
+                                <p class="text-indigo-100 text-sm mt-1">Add numbers to demonstrate your impact:
+                                    "Improved performance by 40%" instead of "Improved performance"</p>
                             </div>
                         </div>
                         <div class="flex items-start bg-white bg-opacity-20 p-4 rounded-xl backdrop-blur-sm">
@@ -372,7 +471,8 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-white">Use Action Verbs</h3>
-                                <p class="text-indigo-100 text-sm mt-1">Start bullet points with strong verbs: "Developed", "Implemented", "Managed", "Optimized"</p>
+                                <p class="text-indigo-100 text-sm mt-1">Start bullet points with strong verbs:
+                                    "Developed", "Implemented", "Managed", "Optimized"</p>
                             </div>
                         </div>
                         <div class="flex items-start bg-white bg-opacity-20 p-4 rounded-xl backdrop-blur-sm">
@@ -381,20 +481,22 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-white">Tailor to Job Description</h3>
-                                <p class="text-indigo-100 text-sm mt-1">Incorporate keywords from the job posting to pass automated screening systems</p>
+                                <p class="text-indigo-100 text-sm mt-1">Incorporate keywords from the job posting to
+                                    pass automated screening systems</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Resume Preview -->
             <div class="lg:w-1/2">
                 <div id="resume" class="bg-white rounded-2xl shadow-lg p-8 print-area">
                     <!-- Personal Header -->
                     <div class="text-center mb-8">
                         <h1 id="previewName" class="text-3xl font-bold text-gray-800 tracking-tight"> RAINA</h1>
-                        <div id="previewTitle" class="text-xl text-indigo-700 mt-1 font-medium">Full Stack Web Developer</div>
+                        <div id="previewTitle" class="text-xl text-indigo-700 mt-1 font-medium">Full Stack Web Developer
+                        </div>
                         <div class="flex flex-wrap justify-center gap-4 mt-4 text-gray-600">
                             <div id="previewEmail" class="flex items-center">
                                 <i class="fas fa-envelope mr-2 text-indigo-600"></i> .raina@example.com
@@ -407,36 +509,48 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Summary -->
                     <div class="mb-8 preview-section">
                         <h2 class="section-title text-xl font-bold text-gray-800">Summary</h2>
                         <p id="previewSummary" class="text-gray-700 leading-relaxed">
-                            Experienced web developer with expertise in React and RESTful API development. Successfully improved user engagement and website efficiency in previous projects.
+                            Experienced web developer with expertise in React and RESTful API development. Successfully
+                            improved user engagement and website efficiency in previous projects.
                         </p>
                     </div>
-                    
+
                     <!-- Skills -->
                     <div class="mb-8 preview-section">
                         <h2 class="section-title text-xl font-bold text-gray-800">Skills</h2>
                         <div id="previewSkills" class="flex flex-wrap gap-2 mt-4">
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Web Development</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">React</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">RESTful APIs</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Git</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">SQL</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">UI Design</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Python</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">HTML/CSS</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Django</span>
-                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">MySQL</span>
+                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Web
+                                Development</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">React</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">RESTful
+                                APIs</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Git</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">SQL</span>
+                            <span class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">UI
+                                Design</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Python</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">HTML/CSS</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">Django</span>
+                            <span
+                                class="skill-badge bg-indigo-100 text-indigo-800 px-3 py-2 rounded-lg font-medium">MySQL</span>
                         </div>
                     </div>
-                    
+
                     <!-- Experience -->
                     <div class="mb-8 preview-section">
                         <h2 class="section-title text-xl font-bold text-gray-800">Experience</h2>
-                        <div class="mt-5 space-y-6">
+                        <div id="previewExperience" class="mt-5 space-y-6">
                             <div class="p-4 hover:bg-gray-50 rounded-lg transition">
                                 <div class="flex flex-wrap justify-between items-start mb-3">
                                     <h3 class="text-lg font-bold text-gray-800">ZESTIN SOLUTIONS PRIVATE LIMITED</h3>
@@ -446,27 +560,32 @@
                                     <span class="font-semibold">Web Developer</span> | Chandigarh, India
                                 </div>
                                 <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                    <li>Collaborated with cross-functional teams to design and implement intuitive, user-friendly web interfaces, improving user satisfaction and engagement</li>
-                                    <li>Maintained and enhanced websites by updating content, resolving technical issues, and implementing new features, ensuring 99% uptime</li>
-                                    <li>Partnered with clients to gather detailed requirements, translating business needs into scalable technical solutions</li>
-                                    <li>Built responsive, mobile-friendly layouts using HTML5, CSS3, and modern design practices, reducing bounce rates by up to 20%</li>
-                                    <li>Monitored and optimized website performance, improving load times by up to 40% through efficient coding and caching strategies</li>
+                                    <li>Collaborated with cross-functional teams to design and implement intuitive,
+                                        user-friendly web interfaces, improving user satisfaction and engagement</li>
+                                    <li>Maintained and enhanced websites by updating content, resolving technical
+                                        issues, and implementing new features, ensuring 99% uptime</li>
+                                    <li>Partnered with clients to gather detailed requirements, translating business
+                                        needs into scalable technical solutions</li>
+                                    <li>Built responsive, mobile-friendly layouts using HTML5, CSS3, and modern design
+                                        practices, reducing bounce rates by up to 20%</li>
+                                    <li>Monitored and optimized website performance, improving load times by up to 40%
+                                        through efficient coding and caching strategies</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Education -->
                     <div class="mb-8 preview-section">
                         <h2 class="section-title text-xl font-bold text-gray-800">Education and Training</h2>
-                        <div class="mt-5 space-y-5">
+                        <div id="previewEducation" class="mt-5 space-y-5">
                             <div class="p-4 hover:bg-gray-50 rounded-lg transition">
                                 <div class="flex flex-wrap justify-between">
                                     <h3 class="text-lg font-semibold text-gray-800">B.Tech Computer Science</h3>
                                     <span class="text-indigo-700">06/2021</span>
                                 </div>
                                 <div class="text-gray-700 mt-1">
-                                    Gulzar Group of Institutions | Ludhiana Khanna, Punjab
+                                    Sultan Group of Institutions | Ludhiana Khanna, Punjab
                                 </div>
                             </div>
                             <div class="p-4 hover:bg-gray-50 rounded-lg transition">
@@ -480,25 +599,33 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Projects -->
                     <div class="mb-8 preview-section">
                         <h2 class="section-title text-xl font-bold text-gray-800">Projects</h2>
-                        <ul class="list-disc pl-5 space-y-3 mt-4 text-gray-700">
-                            <li class="p-2 hover:bg-gray-50 rounded-lg transition"><span class="font-medium">Multi-user Blogging Platform:</span> Developed with role-based authentication, content moderation, and responsive UI using Django</li>
-                            <li class="p-2 hover:bg-gray-50 rounded-lg transition"><span class="font-medium">Secure Online Transaction System:</span> Built with fraud detection features using Django</li>
-                            <li class="p-2 hover:bg-gray-50 rounded-lg transition"><span class="font-medium">WhatsApp Business API Integration:</span> Automated bulk messaging, TCP delivery, and alerts using Node.js and React</li>
+                        <ul id="previewProjects" class="list-disc pl-5 space-y-3 mt-4 text-gray-700">
+                            <li class="p-2 hover:bg-gray-50 rounded-lg transition"><span class="font-medium">Multi-user
+                                    Blogging Platform:</span> Developed with role-based authentication, content
+                                moderation, and responsive UI using Django</li>
+                            <li class="p-2 hover:bg-gray-50 rounded-lg transition"><span class="font-medium">Secure
+                                    Online Transaction System:</span> Built with fraud detection features using Django
+                            </li>
+                            <li class="p-2 hover:bg-gray-50 rounded-lg transition"><span class="font-medium">WhatsApp
+                                    Business API Integration:</span> Automated bulk messaging, TCP delivery, and alerts
+                                using Node.js and React</li>
                         </ul>
                     </div>
-                    
+
                     <!-- Profiles -->
                     <div class="preview-section">
                         <h2 class="section-title text-xl font-bold text-gray-800">Websites & Profiles</h2>
-                        <div class="flex flex-wrap gap-4 mt-4">
-                            <a href="https://github.com/77/" class="text-indigo-700 hover:text-indigo-900 font-medium flex items-center p-3 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition">
+                        <div id="previewProfiles" class="flex flex-wrap gap-4 mt-4">
+                            <a href="https://github.com/77/"
+                                class="text-indigo-700 hover:text-indigo-900 font-medium flex items-center p-3 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition">
                                 <i class="fab fa-github mr-3 text-xl"></i> github.com/77
                             </a>
-                            <a href="https://www.linkedin.com/in/raina/" class="text-indigo-700 hover:text-indigo-900 font-medium flex items-center p-3 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition">
+                            <a href="https://www.linkedin.com/in/raina/"
+                                class="text-indigo-700 hover:text-indigo-900 font-medium flex items-center p-3 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition">
                                 <i class="fab fa-linkedin mr-3 text-xl"></i> linkedin.com/in/raina
                             </a>
                         </div>
@@ -510,51 +637,64 @@
 
     <script>
         // Initialize event listeners
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Set up real-time preview updates
             setupPreviewUpdates();
-            
+
             // Set up AI suggestion buttons
             setupAiButtons();
-            
+
             // Set up download functionality
             setupDownload();
+
+            // Set up update preview button
+            setupUpdateButton();
         });
-        
+
         // Real-time preview updates
         function setupPreviewUpdates() {
             // Personal info
-            document.getElementById('fullName').addEventListener('input', function() {
-                document.getElementById('previewName').textContent = this.value || ' RAINA';
+            document.getElementById('fullName').addEventListener('input', function () {
+                const inputValue = this.value.trim();
+                document.getElementById('previewName').textContent =
+                    inputValue ? inputValue.toUpperCase() : 'RAINA';
             });
-            
-            document.getElementById('jobTitle').addEventListener('input', function() {
-                document.getElementById('previewTitle').textContent = this.value || 'Full Stack Web Developer';
+
+
+            document.getElementById('jobTitle').addEventListener('input', function () {
+                const inputValue = this.value.trim();
+
+                const capitalizeWords = str =>
+                    str.replace(/\b\w/g, char => char.toUpperCase());
+
+                document.getElementById('previewTitle').textContent =
+                    inputValue ? capitalizeWords(inputValue) : 'Full Stack Web Developer';
             });
-            
-            document.getElementById('email').addEventListener('input', function() {
+
+
+            document.getElementById('email').addEventListener('input', function () {
                 document.getElementById('previewEmail').innerHTML = `<i class="fas fa-envelope mr-2 text-indigo-600"></i> ${this.value || '.raina@example.com'}`;
             });
-            
-            document.getElementById('phone').addEventListener('input', function() {
+
+            document.getElementById('phone').addEventListener('input', function () {
                 document.getElementById('previewPhone').innerHTML = `<i class="fas fa-phone mr-2 text-indigo-600"></i> ${this.value || '(987) 654-3210'}`;
             });
-            
-            document.getElementById('location').addEventListener('input', function() {
+
+            document.getElementById('location').addEventListener('input', function () {
                 document.getElementById('previewLocation').innerHTML = `<i class="fas fa-map-marker-alt mr-2 text-indigo-600"></i> ${this.value || 'Chandigarh, India'}`;
             });
-            
+
             // Summary
-            document.getElementById('summary').addEventListener('input', function() {
-                document.getElementById('previewSummary').textContent = this.value || 
+            document.getElementById('summary').addEventListener('input', function () {
+                document.getElementById('previewSummary').textContent = this.value ||
                     'Experienced web developer with expertise in React and RESTful API development. Successfully improved user engagement and website efficiency in previous projects.';
             });
-            
+
             // Skills
-            document.getElementById('skills').addEventListener('input', function() {
+            document.getElementById('skills').addEventListener('input', function () {
                 const skills = this.value.split(',').filter(skill => skill.trim() !== '');
                 const previewSkills = document.getElementById('previewSkills');
-                
+
                 if (skills.length === 0) {
                     // Default skills
                     previewSkills.innerHTML = `
@@ -580,70 +720,131 @@
                 }
             });
         }
-        
+
+        // Update preview button functionality
+        function setupUpdateButton() {
+            document.getElementById('updatePreviewBtn').addEventListener('click', function () {
+                // Show loading indicator
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Updating...';
+
+                // Update all preview sections
+                updatePreview();
+
+                // Restore button text after a short delay
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    showNotification('Preview updated successfully!', 'success');
+                }, 800);
+            });
+        }
+
+        // Update preview function
+        function updatePreview() {
+            // Experience update
+            const company = document.getElementById('expCompany').value || 'ZESTIN SOLUTIONS PRIVATE LIMITED';
+            const position = document.getElementById('expPosition').value || 'Web Developer';
+            const expLocation = document.getElementById('expLocation').value || 'Chandigarh, India';
+            const period = document.getElementById('expPeriod').value || '04/2022 to 06/2025';
+            const responsibilities = document.getElementById('expResponsibilities').value || '';
+
+            const expPreview = document.querySelector('#previewExperience .p-4');
+            if (expPreview) {
+                expPreview.querySelector('h3').textContent = company;
+                expPreview.querySelector('.text-indigo-700').textContent = period;
+                expPreview.querySelector('.text-gray-700').innerHTML = `<span class="font-semibold">${position}</span> | ${expLocation}`;
+
+                // Update responsibilities
+                const ul = expPreview.querySelector('ul');
+                ul.innerHTML = '';
+                responsibilities.split('\n').forEach(resp => {
+                    if (resp.trim() !== '') {
+                        const li = document.createElement('li');
+                        li.textContent = resp.trim();
+                        li.className = 'p-2 hover:bg-gray-50 rounded-lg transition';
+                        ul.appendChild(li);
+                    }
+                });
+            }
+
+            // Education update
+            const degree = document.getElementById('eduDegree').value || 'B.Tech';
+            const date = document.getElementById('eduDate').value || '06/2021';
+            const institution = document.getElementById('eduInstitution').value || 'Sultan Group of Institutions';
+            const eduLocation = document.getElementById('eduLocation').value || 'Ludhiana Khanna, Punjab';
+            const field = document.getElementById('eduField').value || 'Computer Science';
+
+            const eduPreview = document.querySelector('#previewEducation .p-4:first-child');
+            if (eduPreview) {
+                eduPreview.querySelector('h3').textContent = `${degree} ${field}`;
+                eduPreview.querySelector('.text-indigo-700').textContent = date;
+                eduPreview.querySelector('.text-gray-700').textContent = `${institution} | ${eduLocation}`;
+            }
+        }
+
         // AI suggestion functionality
         function setupAiButtons() {
             // Summary AI button
-            document.getElementById('aiSummaryBtn').addEventListener('click', function() {
+            document.getElementById('aiSummaryBtn').addEventListener('click', function () {
                 const suggestionBox = document.getElementById('aiSummarySuggestion');
                 suggestionBox.classList.remove('hidden');
-                
+
                 // Simulate AI processing
                 const suggestions = [
                     "Experienced Full Stack Web Developer with 3+ years of expertise in React and RESTful API development. Proven track record of improving user engagement by 25% and website efficiency by 40% through optimized code and modern design practices.",
                     "Web Developer specializing in React and RESTful API development with a strong background in creating high-performance applications. Enhanced user satisfaction by 30% and reduced page load times by 40% in previous roles.",
                     "Results-driven Web Developer with expertise in React-based applications and RESTful API development. Successfully improved website efficiency and user engagement metrics across multiple client projects."
                 ];
-                
+
                 const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
                 document.getElementById('aiSummaryText').textContent = randomSuggestion;
             });
-            
+
             // Apply summary suggestion
-            document.getElementById('applySummarySuggestion').addEventListener('click', function() {
+            document.getElementById('applySummarySuggestion').addEventListener('click', function () {
                 const suggestionText = document.getElementById('aiSummaryText').textContent;
                 document.getElementById('summary').value = suggestionText;
                 document.getElementById('previewSummary').textContent = suggestionText;
                 document.getElementById('aiSummarySuggestion').classList.add('hidden');
             });
-            
+
             // Dismiss summary suggestion
-            document.getElementById('dismissSummarySuggestion').addEventListener('click', function() {
+            document.getElementById('dismissSummarySuggestion').addEventListener('click', function () {
                 document.getElementById('aiSummarySuggestion').classList.add('hidden');
             });
-            
+
             // Skills AI button
-            document.getElementById('aiSkillsBtn').addEventListener('click', function() {
+            document.getElementById('aiSkillsBtn').addEventListener('click', function () {
                 const suggestionBox = document.getElementById('aiSkillsSuggestion');
                 suggestionBox.classList.remove('hidden');
-                
+
                 // Simulate AI processing
                 const suggestions = [
                     "Consider grouping skills by category: Frontend: React, HTML5, CSS3, TailwindCSS, Bootstrap; Backend: Python, Django, RESTful API; Databases: MySQL, SQL; Tools: Git, Webpack; Methodologies: Agile, Scrum",
                     "Add proficiency levels: React (Advanced), Python (Advanced), Django (Advanced), MySQL (Intermediate), Git (Advanced). Include relevant frameworks: Next.js, Express.js",
                     "Enhance with industry keywords: JavaScript (ES6+), Responsive Web Design, Cross-Browser Compatibility, Performance Optimization, Unit Testing, CI/CD, Cloud Services (AWS, Azure)"
                 ];
-                
+
                 const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
                 document.getElementById('aiSkillsText').textContent = randomSuggestion;
             });
-            
+
             // Apply skills suggestion
-            document.getElementById('applySkillsSuggestion').addEventListener('click', function() {
+            document.getElementById('applySkillsSuggestion').addEventListener('click', function () {
                 document.getElementById('skills').value = "Web application development, React, HTML5, CSS3, TailwindCSS, Bootstrap, Python, Django, RESTful API, MySQL, Git, Responsive Design, Performance Optimization";
                 document.getElementById('skills').dispatchEvent(new Event('input'));
                 document.getElementById('aiSkillsSuggestion').classList.add('hidden');
             });
-            
+
             // Dismiss skills suggestion
-            document.getElementById('dismissSkillsSuggestion').addEventListener('click', function() {
+            document.getElementById('dismissSkillsSuggestion').addEventListener('click', function () {
                 document.getElementById('aiSkillsSuggestion').classList.add('hidden');
             });
         }
-        
+
         // Download functionality
         function setupDownload() {
-            document.getElementById('downloadBtn').addEventListener('click', function() {
+            document.getElementById('downloadBtn').addEventListener('click', function () {
                 const element = document.getElementById('resume');
                 const opt = {
                     margin: 10,
@@ -657,34 +858,33 @@
                 const originalText = this.innerHTML;
                 this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating PDF...';
                 this.disabled = true;
-                
+
                 // Generate PDF
                 html2pdf().set(opt).from(element).save().then(() => {
                     // Restore button
                     this.innerHTML = originalText;
                     this.disabled = false;
-                    
+
                     // Show success message
                     showNotification('Resume downloaded successfully!', 'success');
                 });
             });
         }
-        
+
         // Notification function
         function showNotification(message, type) {
             const notification = document.createElement('div');
-            notification.className = `fixed bottom-6 right-6 px-5 py-3 rounded-xl shadow-xl text-white flex items-center ${
-                type === 'success' ? 'bg-green-500' : 'bg-red-500'
-            }`;
+            notification.className = `fixed bottom-6 right-6 px-5 py-3 rounded-xl shadow-xl text-white flex items-center ${type === 'success' ? 'bg-green-500' : 'bg-red-500'
+                }`;
             notification.innerHTML = `
                 <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle text-xl mr-3"></i>
                 <div>
                     <div class="font-medium">${message}</div>
-                    <div class="text-sm opacity-90">Your resume is ready to share</div>
+                    <div class="text-sm opacity-90">${type === 'success' ? 'Your changes are now visible' : 'Please try again'}</div>
                 </div>
             `;
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.style.opacity = '0';
                 notification.style.transform = 'translateY(20px)';
@@ -695,4 +895,5 @@
         }
     </script>
 </body>
+
 </html>
